@@ -3,10 +3,10 @@ services:
   - docker
 
 before_install: 
-  - docker build -t atulkatiyardocker/react-test -f ./client/Dockerfile.dev
+  - docker build -t atulkatiyardocker/docker-test:react-test -f Dockerfile.dev ./client/
 
 script: 
-  - docker run atulkatiyardocker/docker-test:multi-docker npm test -- --coverage
+  - docker run -e CI=true atulkatiyardocker/docker-test:react-test npm test -- --coverage
 
 after_success:
   - docker build -t atulkatiyardocker/docker-test:multi-client ./client
