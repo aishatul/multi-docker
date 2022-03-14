@@ -18,6 +18,6 @@ after_success:
   - docker push atulkatiyardocker/docker-test:multi-client
   - docker push atulkatiyardocker/docker-test:multi-nginx
   - docker push atulkatiyardocker/docker-test:multi-worker
-  - docker atulkatiyardocker/docker-test:multi-server
+  - docker push atulkatiyardocker/docker-test:multi-server
 
  
