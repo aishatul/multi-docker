@@ -1,0 +1,40 @@
+{
+	"AWSEBDockerrunVersion": 2,
+	"containerDefinitions": [{
+			"name": "client",
+			"image": "atulkatiyardocker/docker-test:multi-client",
+			"hostname": "client",
+			"essential": false
+
+		},
+
+		{
+			"name": "server",
+			"image": "atulkatiyardocker/docker-test:multi-server",
+			"hostname": "api",
+			"essential": false
+
+		},
+
+		{
+			"name": "worker",
+			"image": "atulkatiyardocker/docker-test:multi-worker",
+			"hostname": "worker",
+			"essential": false
+
+		},
+
+		{
+			"name": "nginx",
+			"image": "atulkatiyardocker/docker-test:multi-nginx",
+			"hostname": "nginx",
+			"essential": true,
+			"portMappings": [{
+				"hostPort": 80,
+				"containerPort": 80
+			}],
+			"links": ["client", "server"]
+		}
+	]
+
+}
